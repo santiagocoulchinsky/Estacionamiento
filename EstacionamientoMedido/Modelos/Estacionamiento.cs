@@ -22,6 +22,8 @@ namespace EstacionamientoMedido.Modelos
         {
             Estado = EstadoEstacionamiento.Terminado;
 
+            PlazaOcupada = EstadoPlaza.libre;
+
             Salida = DateTime.Now;
 
             TimeSpan tiempo = Salida - Entrada;

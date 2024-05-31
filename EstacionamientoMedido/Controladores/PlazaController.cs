@@ -1,4 +1,5 @@
-﻿using EstacionamientoMedido.Modelos;
+﻿using EstacionamientoMedido.Enumeraciones;
+using EstacionamientoMedido.Modelos;
 using EstacionamientoMedido.Validaciones;
 using FluentValidation.Results;
 using System;
@@ -33,20 +34,28 @@ namespace EstacionamientoMedido.Controladores
 
         }
         
-
-
         public List<PlazaEstacionamiento> ObtenerPlazas()
         {
             return repo.PlazasEstacionamiento;
         }
         public PlazaEstacionamiento ObtenerPlazaPorNombre(string plaza)
         {
-            // Esto es sin usar LinQ
-            //Vehiculo vehiculoBuscado = repo.Vehiculos.Find(x => x.Patente == patente);
+
 
             PlazaEstacionamiento plazaBuscada = repo.PlazasEstacionamiento.Where(x => x.Nombre == plaza).FirstOrDefault();
 
             return plazaBuscada;
+        }
+        public bool PlazaOcupada(string plaza)
+        {
+            bool resultado;
+
+            resultado = repo.Estacionamientos
+                .Where(x => x.Plaza.Nombre == plaza)
+                .Where(x => x.PlazaOcupada == EstadoPlaza.ocupada)
+                .Any();
+
+            return resultado;
         }
     }
 }

@@ -24,23 +24,32 @@ namespace EstacionamientoMedido.Vistas
             Console.Write("Ingrese plaza: ");
             string plaza = Console.ReadLine();
             
-
-            if (!controladorVehiculo.ExistePatente(patente))
+            if (!controladorPlaza.PlazaOcupada(plaza))
             {
-                vistaVehiculo.CrearVehiculo();
-            }
+                if (!controladorVehiculo.ExistePatente(patente))
+                {
+                    vistaVehiculo.CrearVehiculo();
+                }
 
-            if (!controladorEstacionamiento.YaEstaEstacionado(patente))
-            {
-                controladorEstacionamiento.IniciarEstacionamiento(patente, plaza);
-                
+                if (!controladorEstacionamiento.YaEstaEstacionado(patente))
+                {
+                    controladorEstacionamiento.IniciarEstacionamiento(patente, plaza);
+
+                }
+                else
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Ya hay un vehiculo estacionado con esta patente");
+                    Console.WriteLine();
+                }
             }
             else
             {
                 Console.WriteLine();
-                Console.WriteLine("Ya hay un vehiculo estacionado con esta patente");
+                Console.WriteLine("Ya hay un vehiculo estacionado en esta plaza.");
                 Console.WriteLine();
             }
+            
         }
 
         public void FinalizarEstacionamiento()
