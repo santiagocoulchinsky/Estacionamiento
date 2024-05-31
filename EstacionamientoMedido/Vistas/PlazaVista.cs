@@ -24,7 +24,7 @@ namespace EstacionamientoMedido.Vistas
             }
             Console.WriteLine();
         }
-        public void NuevaPlaza()
+        public void AsignarPlaza()
         {
             PlazaEstacionamiento PlazaCargar = new PlazaEstacionamiento();
             Console.Write("Nombre plaza: ");

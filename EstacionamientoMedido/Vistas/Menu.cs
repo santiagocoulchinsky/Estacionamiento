@@ -67,7 +67,7 @@ namespace EstacionamientoMedido.Vistas
                     break;
 
                 case 4:
-                    vistaPlaza.NuevaPlaza();
+                    vistaPlaza.AsignarPlaza();
                     Console.WriteLine();
                     MostrarMenu();
                     break;

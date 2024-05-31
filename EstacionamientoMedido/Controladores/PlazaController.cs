@@ -57,5 +57,14 @@ namespace EstacionamientoMedido.Controladores
 
             return resultado;
         }
+
+        public void AsignaPlaza(string plaza)
+        {
+            PlazaEstacionamiento PlazaCargar = new PlazaEstacionamiento();
+
+            PlazaCargar.Nombre = plaza;
+
+            GuardarPlaza(PlazaCargar);
+        }
     }
 }

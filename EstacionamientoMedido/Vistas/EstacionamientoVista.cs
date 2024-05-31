@@ -12,6 +12,7 @@ namespace EstacionamientoMedido.Vistas
     {
         VehiculoController controladorVehiculo = new VehiculoController();
         VehiculoVista vistaVehiculo = new VehiculoVista();
+        PlazaVista vistaPlaza = new PlazaVista();
         EstacionamientoController controladorEstacionamiento = new EstacionamientoController();
         PlazaController controladorPlaza = new PlazaController();
 
@@ -24,17 +25,23 @@ namespace EstacionamientoMedido.Vistas
             Console.Write("Ingrese plaza: ");
             string plaza = Console.ReadLine();
             
+
             if (!controladorPlaza.PlazaOcupada(plaza))
             {
+                controladorPlaza.AsignaPlaza(plaza);
+
                 if (!controladorVehiculo.ExistePatente(patente))
                 {
+
                     vistaVehiculo.CrearVehiculo();
+                   
                 }
 
                 if (!controladorEstacionamiento.YaEstaEstacionado(patente))
                 {
-                    controladorEstacionamiento.IniciarEstacionamiento(patente, plaza);
 
+                    controladorEstacionamiento.IniciarEstacionamiento(patente, plaza);
+                    
                 }
                 else
                 {
@@ -42,6 +49,9 @@ namespace EstacionamientoMedido.Vistas
                     Console.WriteLine("Ya hay un vehiculo estacionado con esta patente");
                     Console.WriteLine();
                 }
+
+                
+
             }
             else
             {
@@ -49,7 +59,7 @@ namespace EstacionamientoMedido.Vistas
                 Console.WriteLine("Ya hay un vehiculo estacionado en esta plaza.");
                 Console.WriteLine();
             }
-            
+
         }
 
         public void FinalizarEstacionamiento()
