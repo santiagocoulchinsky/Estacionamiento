@@ -9,12 +9,14 @@ namespace EstacionamientoMedido.Modelos
 {
     public class Estacionamiento
     {
-        public Estacionamiento(Vehiculo vehiculo, int precioHora)
+        public Estacionamiento(Vehiculo vehiculo, int precioHora, PlazaEstacionamiento plaza)
         {
             Entrada = DateTime.Now;
             Estado = EstadoEstacionamiento.Activo;
             VehiculoEstacionado = vehiculo;
             PrecioHora = precioHora;
+            Plaza = plaza;
+            PlazaOcupada = EstadoPlaza.ocupada;
         }
         public void SalidaEstacionamiento()
         {
@@ -37,11 +39,13 @@ namespace EstacionamientoMedido.Modelos
         }
         public DateTime Entrada { get; private set; }
         public DateTime Salida { get; set; }
-        public PlazaEstacionamiento PlazaEstacionamiento { get; set; }
+        public EstadoPlaza PlazaOcupada { get; set; }
         public int PrecioHora { get; private set; }
         public Vehiculo VehiculoEstacionado { get; private set; }
+        public PlazaEstacionamiento Plaza { get; set; }
         public int TotalEstacionamiento { get; set; }
         public EstadoEstacionamiento Estado { get; set; }
+        
 
     }
 }

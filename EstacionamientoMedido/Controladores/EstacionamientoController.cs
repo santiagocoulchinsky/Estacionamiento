@@ -12,12 +12,14 @@ namespace EstacionamientoMedido.Controladores
     {
         Repositorio repo = Repositorio.ObtenerInstancia();
         VehiculoController controladorVehiculo = new VehiculoController();
+        PlazaController controladorPlaza = new PlazaController();   
         private const int PrecioPorHora = 2000;
-        public void IniciarEstacionamiento(string patente)
+        public void IniciarEstacionamiento(string patente, string plaza)
         {
             Vehiculo vehiculo = controladorVehiculo.ObtenerVehiculoPorPatente(patente);
+            PlazaEstacionamiento plaz = controladorPlaza.ObtenerPlazaPorNombre(plaza);
 
-            Estacionamiento estacionamiento = new Estacionamiento(vehiculo, PrecioPorHora);
+            Estacionamiento estacionamiento = new Estacionamiento(vehiculo, PrecioPorHora, plaz);
 
             repo.Estacionamientos.Add(estacionamiento);
         }

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace EstacionamientoMedido.Enumeraciones
 {
-    internal class EstadoPlaza
+    public enum EstadoPlaza
     {
+        libre = 1,
+        ocupada = 2,    
     }
 }

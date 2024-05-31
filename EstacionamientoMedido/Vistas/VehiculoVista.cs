@@ -16,11 +16,12 @@ namespace EstacionamientoMedido.Vistas
         {
             var vehiculos = vehiculoController.ObtenerTodos();
 
-            Console.WriteLine("Vehiculos cargados");
+            Console.WriteLine("\n Vehículos cargados:");
             Console.WriteLine();
             foreach (var item in vehiculos)
             {
-                Console.WriteLine($"{item.Patente} - {item.Marca} {item.Modelo}");
+                Console.WriteLine($" > Coche: {item.Patente} - {item.Marca} {item.Modelo}");
+                Console.WriteLine("---------------------------");
             }
             Console.WriteLine();
         }

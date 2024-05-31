@@ -12,6 +12,7 @@ namespace EstacionamientoMedido.Vistas
         ClienteVista vistaCliente = new ClienteVista();
         VehiculoVista vistaVehiculo = new VehiculoVista();
         EstacionamientoVista vistaEstacionamiento = new EstacionamientoVista();
+        PlazaVista vistaPlaza = new PlazaVista();
 
         public void MostrarMenu()
         {
@@ -23,13 +24,16 @@ namespace EstacionamientoMedido.Vistas
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("---------------------------");
             Console.WriteLine("3- Cargar un cliente");
-            Console.WriteLine("4- Ver clientes registrados");
+            Console.WriteLine("4- Cargar Nueva Plaza");
+            Console.WriteLine("5- Ver clientes registrados");
             Console.WriteLine("---------------------------");
-            Console.WriteLine("5- Cargar Vehiculo");
-            Console.WriteLine("6- Ver vehiculos cargados");
-            Console.WriteLine("7- Ver estacionamientos");
+            Console.WriteLine("6- Cargar Vehiculo");
+            Console.WriteLine("7- Ver vehiculos y plazas cargadas");
+            Console.WriteLine("8- Ver estacionamientos");
+            Console.WriteLine("9- Ver estacionamiento por patente");
+            
             Console.WriteLine("---------------------------");
-            Console.WriteLine("8- Salir");
+            Console.WriteLine("10- Salir");
             Console.WriteLine();
             Console.Write("Opcion: ");
             eleccion = int.Parse(Console.ReadLine());
@@ -63,6 +67,13 @@ namespace EstacionamientoMedido.Vistas
                     break;
 
                 case 4:
+                    vistaPlaza.NuevaPlaza();
+                    Console.WriteLine();
+                    MostrarMenu();
+                    break;
+
+
+                case 5:
 
                     vistaCliente.MostrarClientesRegistrados();
 
@@ -70,26 +81,33 @@ namespace EstacionamientoMedido.Vistas
                     MostrarMenu();
                     break;
 
-                case 5:
+                case 6:
                     vistaVehiculo.CrearVehiculo();
                     Console.WriteLine();
                     MostrarMenu();
 
                     break;
 
-                case 6:
+                case 7:
                     vistaVehiculo.ListarVehiculos();
+                    vistaPlaza.ListarPlazas();
                     Console.WriteLine();
                     MostrarMenu();
                     break;
 
-                case 7: // ver estacionmaientos
+                case 8: // ver estacionmaientos
                     vistaEstacionamiento.VerEstacionamientos();
                     Console.WriteLine();
                     MostrarMenu();
                     break;
 
-                case 8:
+                case 9: //ver estacionamiento por patente
+                    vistaEstacionamiento.VerEstacionamiento();
+                    Console.WriteLine();
+                    MostrarMenu();
+                    break;
+
+                case 10:
                     Environment.Exit(0);
                     break;
 
