@@ -24,9 +24,9 @@ namespace EstacionamientoMedido.Vistas
             Console.WriteLine();
             Console.Write("Ingrese plaza: ");
             string plaza = Console.ReadLine();
-            
 
-            if (!controladorPlaza.PlazaOcupada(plaza))
+
+            if ((!controladorPlaza.PlazaOcupada(plaza)) && (controladorPlaza.ExistePlaza(plaza)))
             {
                 controladorPlaza.AsignaPlaza(plaza);
 
@@ -56,7 +56,7 @@ namespace EstacionamientoMedido.Vistas
             else
             {
                 Console.WriteLine();
-                Console.WriteLine("Ya hay un vehiculo estacionado en esta plaza.");
+                Console.WriteLine("Elija una plaza disponible, o cree una nueva.");
                 Console.WriteLine();
             }
 

@@ -44,7 +44,7 @@ namespace EstacionamientoMedido.Modelos
         public EstadoPlaza PlazaOcupada { get; set; }
         public int PrecioHora { get; private set; }
         public Vehiculo VehiculoEstacionado { get; private set; }
-        public PlazaEstacionamiento Plaza { get; set; }
+        public PlazaEstacionamiento Plaza { get; private set; }
         public int TotalEstacionamiento { get; set; }
         public EstadoEstacionamiento Estado { get; set; }
         

@@ -64,7 +64,18 @@ namespace EstacionamientoMedido.Controladores
 
             PlazaCargar.Nombre = plaza;
 
-            GuardarPlaza(PlazaCargar);
+            //GuardarPlaza(PlazaCargar);
+        }
+        public bool ExistePlaza(string plaza)
+        {
+            return repo.PlazasEstacionamiento.Any(x => x.Nombre == plaza);
+
+            //bool resultado;
+
+            //resultado = repo.Vehiculos.Any(x=> x.Patente == patente);
+            //resultado = repo.Vehiculos.Where(x => x.Patente == patente).Any();
+
+            //return resultado;
         }
     }
 }
