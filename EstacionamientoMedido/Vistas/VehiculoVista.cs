@@ -21,7 +21,7 @@ namespace EstacionamientoMedido.Vistas
             foreach (var item in vehiculos)
             {
                 Console.WriteLine($" > Coche: {item.Patente} - {item.Marca} {item.Modelo}");
-                Console.WriteLine("---------------------------");
+                Console.WriteLine("---------------------------------");
             }
             Console.WriteLine();
         }

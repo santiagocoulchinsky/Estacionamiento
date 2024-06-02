@@ -20,7 +20,7 @@ namespace EstacionamientoMedido.Vistas
             foreach (var item in plazas)
             {
                 Console.WriteLine($" > Plaza {item.Nombre}");
-                Console.WriteLine("---------------------------");
+                Console.WriteLine("-----------");
             }
             Console.WriteLine();
         }
