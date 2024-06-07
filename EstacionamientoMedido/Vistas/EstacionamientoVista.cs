@@ -87,7 +87,7 @@ namespace EstacionamientoMedido.Vistas
                     if (item.Estado == Enumeraciones.EstadoEstacionamiento.Activo)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"\n > {item.VehiculoEstacionado.Patente} - {item.Entrada} - {item.Plaza.Nombre}");
+                        Console.WriteLine($"\n > {item.VehiculoEstacionado.Patente} - {item.Entrada} - {item.VehiculoEstacionado.Modelo} - {item.Plaza.Nombre}");
 
                     }
                     else
