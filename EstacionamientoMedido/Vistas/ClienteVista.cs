@@ -1,10 +1,6 @@
 ﻿using EstacionamientoMedido.Controladores;
 using EstacionamientoMedido.Modelos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace EstacionamientoMedido.Vistas
 {
@@ -20,6 +16,8 @@ namespace EstacionamientoMedido.Vistas
             clienteNuevo.Nombre = Console.ReadLine();
             Console.Write("Apellido: ");
             clienteNuevo.Apellido = Console.ReadLine();
+            Console.Write("DNI: ");
+            clienteNuevo.DNI = Console.ReadLine();
             Console.Write("Telefono: ");
             clienteNuevo.Telefono = Console.ReadLine();
             Console.Write("Email: ");
@@ -31,7 +29,7 @@ namespace EstacionamientoMedido.Vistas
         public void MostrarClientesRegistrados()
         {
             List<Cliente> listadoClientes = controladorClientes.ObtenerClientes();
-
+            Console.WriteLine();
             Console.WriteLine("Listado de clientes cargados en el sistema");
             Console.WriteLine();
             foreach (var item in listadoClientes)

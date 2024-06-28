@@ -102,7 +102,7 @@ namespace EstacionamientoMedido.Vistas
                     break;
 
                 case 9: //ver estacionamiento por patente
-                    vistaEstacionamiento.VerEstacionamiento();
+                    //vistaEstacionamiento.VerEstacionamiento();
                     Console.WriteLine();
                     MostrarMenu();
                     break;

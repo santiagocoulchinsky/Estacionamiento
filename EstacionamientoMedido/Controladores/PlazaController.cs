@@ -2,17 +2,13 @@
 using EstacionamientoMedido.Modelos;
 using EstacionamientoMedido.Validaciones;
 using FluentValidation.Results;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace EstacionamientoMedido.Controladores
 {
     internal class PlazaController
     {
-        Repositorio repo = Repositorio.ObtenerInstancia();
+        //Repositorio repo = Repositorio.ObtenerInstancia();
 
         public void GuardarPlaza(PlazaEstacionamiento v)
         {
@@ -22,7 +18,13 @@ namespace EstacionamientoMedido.Controladores
 
             if (resultadoValidacion.IsValid)
             {
-                repo.PlazasEstacionamiento.Add(v);
+                //repo.PlazasEstacionamiento.Add(v);
+                using (AppDbContext context = new AppDbContext())
+                {
+                    context.Database.EnsureCreated();
+                    context.Set<PlazaEstacionamiento>().Add(v);
+                    context.SaveChanges();
+                }
             }
             else
             {
@@ -33,29 +35,54 @@ namespace EstacionamientoMedido.Controladores
             }
 
         }
-        
+
         public List<PlazaEstacionamiento> ObtenerPlazas()
         {
-            return repo.PlazasEstacionamiento;
+            //return repo.PlazasEstacionamiento;
+            List<PlazaEstacionamiento> plaza;
+            using (AppDbContext context = new AppDbContext())
+            {
+                plaza = context.Set<PlazaEstacionamiento>().ToList();
+            }
+            return plaza;
         }
         public PlazaEstacionamiento ObtenerPlazaPorNombre(string plaza)
         {
-
-
-            PlazaEstacionamiento plazaBuscada = repo.PlazasEstacionamiento.Where(x => x.Nombre == plaza).FirstOrDefault();
-
+            PlazaEstacionamiento plazaBuscada;
+            using (AppDbContext context = new AppDbContext())
+            {
+                plazaBuscada = context.Set<PlazaEstacionamiento>()
+                .Where(x => x.Nombre == plaza)
+                .First();
+            }
             return plazaBuscada;
+
+            //PlazaEstacionamiento plazaBuscada = repo.PlazasEstacionamiento.Where(x => x.Nombre == plaza).FirstOrDefault();
+
+            //return plazaBuscada;
         }
+
+
+
+
         public bool PlazaOcupada(string plaza)
         {
             bool resultado;
-
-            resultado = repo.Estacionamientos
-                .Where(x => x.Plaza.Nombre == plaza)
-                .Where(x => x.PlazaOcupada == EstadoPlaza.ocupada)
-                .Any();
+            using (AppDbContext context = new AppDbContext())
+            {
+                resultado = context.Set<Estacionamiento>()
+                    .Where(x => x.Plaza.Nombre == plaza)
+                    .Where(x => x.PlazaOcupada == EstadoPlaza.ocupada)
+                    .Any();
+            }
 
             return resultado;
+
+            //resultado = repo.Estacionamientos
+            //.Where(x => x.Plaza.Nombre == plaza)
+            //.Where(x => x.PlazaOcupada == EstadoPlaza.ocupada)
+            //.Any();
+
         }
 
         public void AsignaPlaza(string plaza)
@@ -68,7 +95,15 @@ namespace EstacionamientoMedido.Controladores
         }
         public bool ExistePlaza(string plaza)
         {
-            return repo.PlazasEstacionamiento.Any(x => x.Nombre == plaza);
+            bool p;
+
+            using (AppDbContext context = new AppDbContext())
+            {
+                p = context.Set<PlazaEstacionamiento>().Any(x => x.Nombre == plaza);
+            }
+            return p;
+
+            //return repo.PlazasEstacionamiento.Any(x => x.Nombre == plaza);
 
             //bool resultado;
 

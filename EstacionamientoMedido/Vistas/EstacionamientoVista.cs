@@ -93,71 +93,62 @@ namespace EstacionamientoMedido.Vistas
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"\n > {item.VehiculoEstacionado.Patente} - {item.Entrada} / {item.Salida}");
+                        Console.WriteLine($"\n > {item.VehiculoEstacionado.Patente} - {item.Entrada} / {item.Salida} Precio: {item.TotalEstacionamiento}");
                     }
 
                     Console.ForegroundColor = ConsoleColor.Gray;
                 }
-                //foreach (var item in Plazas)
-                //{
-                //    //if (item.EstadoPlaza == Enumeraciones.EstadoPlaza.ocupada)
-                //    {
-                //        Console.ForegroundColor = ConsoleColor.Green;
-                //        Console.WriteLine($" > {item.Nombre}");
-                //    }
-                    
-                //}
             }
         }
-        public void VerEstacionamiento()
-        {
-            Console.WriteLine();
-            Console.Write("Ingrese patente: ");
-            string patente = Console.ReadLine();
+        //public void VerEstacionamiento()
+        //{
+        //    Console.WriteLine();
+        //    Console.Write("Ingrese patente: ");
+        //    string patente = Console.ReadLine();
 
-            List<Estacionamiento> estacionamientos = controladorEstacionamiento.ObtenerEstacionamientosPorPatente(patente);
+        //    List<Estacionamiento> estacionamientos = controladorEstacionamiento.ObtenerEstacionamientosPorPatente(patente);
 
-            if (controladorVehiculo.ExistePatente(patente))
-            {
-                foreach (var item in estacionamientos)
-                {
-                    if (item.Estado == Enumeraciones.EstadoEstacionamiento.Activo)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"\n > {item.VehiculoEstacionado.Patente} - {item.Entrada} - {item.Plaza.Nombre}");
+        //    if (controladorVehiculo.ExistePatente(patente))
+        //    {
+        //        foreach (var item in estacionamientos)
+        //        {
+        //            if (item.Estado == Enumeraciones.EstadoEstacionamiento.Activo)
+        //            {
+        //                Console.ForegroundColor = ConsoleColor.Green;
+        //                Console.WriteLine($"\n > {item.VehiculoEstacionado.Patente} - {item.Entrada} - {item.Plaza.Nombre}");
 
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"\n > {item.VehiculoEstacionado.Patente} - {item.Entrada} / {item.Salida}");
-                    }
-                }
-                
-            }
-            else
-            {
-                Console.WriteLine("\nNo hay estacionamientos iniciados con esa patente.");
-            }
-            //else
-            //{
-            //    foreach (var item in estacionamientos)
-            //    {
-            //        if (item.Estado == Enumeraciones.EstadoEstacionamiento.Activo)
-            //        {
-            //            Console.ForegroundColor = ConsoleColor.Green;
-            //            Console.WriteLine($" > {item.VehiculoEstacionado.Patente} - {item.Entrada}");
+        //            }
+        //            else
+        //            {
+        //                Console.ForegroundColor = ConsoleColor.Red;
+        //                Console.WriteLine($"\n > {item.VehiculoEstacionado.Patente} - {item.Entrada} / {item.Salida}");
+        //            }
+        //        }
 
-            //        }
-            //        else
-            //        {
-            //            Console.ForegroundColor = ConsoleColor.Red;
-            //            Console.WriteLine($" > {item.VehiculoEstacionado.Patente} - {item.Entrada} / {item.Salida}");
-            //        }
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("\nNo hay estacionamientos iniciados con esa patente.");
+        //    }
+        //else
+        //{
+        //    foreach (var item in estacionamientos)
+        //    {
+        //        if (item.Estado == Enumeraciones.EstadoEstacionamiento.Activo)
+        //        {
+        //            Console.ForegroundColor = ConsoleColor.Green;
+        //            Console.WriteLine($" > {item.VehiculoEstacionado.Patente} - {item.Entrada}");
 
-            //        Console.ForegroundColor = ConsoleColor.Gray;
-            //    }
-            //}
-        }
+        //        }
+        //        else
+        //        {
+        //            Console.ForegroundColor = ConsoleColor.Red;
+        //            Console.WriteLine($" > {item.VehiculoEstacionado.Patente} - {item.Entrada} / {item.Salida}");
+        //        }
+
+        //        Console.ForegroundColor = ConsoleColor.Gray;
+        //    }
+        //}
     }
 }
+//}

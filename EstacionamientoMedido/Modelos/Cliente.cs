@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace EstacionamientoMedido.Modelos
 {
-    public class Cliente
+    public class Cliente : BaseEntidad
     {
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string DNI { get; set; }
         public string Telefono { get; set; }
         public string Email { get; set; }
+        public List<Vehiculo> Vehiculos { get; set;}
     }
 }
