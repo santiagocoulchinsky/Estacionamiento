@@ -12,7 +12,7 @@ namespace EstacionamientoMedido.Vistas
     public class VehiculoVista
     {
         VehiculoController vehiculoController = new VehiculoController();
-        ClienteController clienteController = new ClienteController();
+        
         public void ListarVehiculos()
         {
             var vehiculos = vehiculoController.ObtenerTodos();
@@ -21,8 +21,6 @@ namespace EstacionamientoMedido.Vistas
             Console.WriteLine();
             foreach (var item in vehiculos)
             {
-                //var clientes = clienteController.ObtenerClientes();
-                //foreach (var item2 in clientes)
                 Console.WriteLine($" > Coche: {item.Patente} - {item.Marca} {item.Modelo} - De: {item.Cliente.Nombre}");
                 Console.WriteLine("---------------------------------");
             }
@@ -33,7 +31,7 @@ namespace EstacionamientoMedido.Vistas
         {
 
 
-            Console.Write("Pertenece a cliente nro: ");
+            Console.Write("\nPertenece a cliente nro: ");
             int n = int.Parse(Console.ReadLine());
 
             using (var context = new AppDbContext())
@@ -45,7 +43,7 @@ namespace EstacionamientoMedido.Vistas
                 {
                     var VehiculoCargar = new Vehiculo();
                     
-                    Console.Write("Marca: ");
+                    Console.Write("\nMarca: ");
                     VehiculoCargar.Marca = Console.ReadLine();
                     Console.Write("Patente: ");
                     VehiculoCargar.Patente = Console.ReadLine();

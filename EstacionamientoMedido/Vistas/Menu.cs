@@ -25,9 +25,9 @@ namespace EstacionamientoMedido.Vistas
             Console.WriteLine("---------------------------");
             Console.WriteLine("3- Cargar un cliente");
             Console.WriteLine("4- Cargar Nueva Plaza");
-            Console.WriteLine("5- Ver clientes registrados");
+            Console.WriteLine("5- Cargar Vehiculo");
             Console.WriteLine("---------------------------");
-            Console.WriteLine("6- Cargar Vehiculo");
+            Console.WriteLine("6- Ver clientes registrados");
             Console.WriteLine("7- Ver vehiculos y plazas cargadas");
             Console.WriteLine("8- Ver estacionamientos");
             Console.WriteLine("9- Ver estacionamiento por patente");
@@ -73,7 +73,7 @@ namespace EstacionamientoMedido.Vistas
                     break;
 
 
-                case 5:
+                case 6:
 
                     vistaCliente.MostrarClientesRegistrados();
 
@@ -81,7 +81,7 @@ namespace EstacionamientoMedido.Vistas
                     MostrarMenu();
                     break;
 
-                case 6:
+                case 5:
                     vistaVehiculo.CrearVehiculo();
                     Console.WriteLine();
                     MostrarMenu();
@@ -102,7 +102,7 @@ namespace EstacionamientoMedido.Vistas
                     break;
 
                 case 9: //ver estacionamiento por patente
-                    //vistaEstacionamiento.VerEstacionamiento();
+                    vistaEstacionamiento.VerEstacionamiento();
                     Console.WriteLine();
                     MostrarMenu();
                     break;

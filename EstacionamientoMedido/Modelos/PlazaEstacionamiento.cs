@@ -9,10 +9,10 @@ namespace EstacionamientoMedido.Modelos
             EstadoPlaza = EstadoPlaza.libre;
         }
         
+        
         public string Nombre { get; set; }
 
         public EstadoPlaza EstadoPlaza { get; set; }
-        
-
+ 
     }
 }

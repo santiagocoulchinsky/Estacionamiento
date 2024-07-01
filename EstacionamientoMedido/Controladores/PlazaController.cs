@@ -91,6 +91,8 @@ namespace EstacionamientoMedido.Controladores
 
             PlazaCargar.Nombre = plaza;
 
+            
+
             //GuardarPlaza(PlazaCargar);
         }
         public bool ExistePlaza(string plaza)

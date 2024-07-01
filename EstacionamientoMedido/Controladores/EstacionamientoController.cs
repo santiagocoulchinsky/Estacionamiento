@@ -90,16 +90,24 @@ namespace EstacionamientoMedido.Controladores
             
             //return repo.Estacionamientos;
         }
-        //public List<Estacionamiento> ObtenerEstacionamientosPorPatente(string patente)
-        //{
-        //    List<Estacionamiento> estacionamientos;
+        public List<Estacionamiento> ObtenerEstacionamientosPorPatente(string patente)
+        {
+            List<Estacionamiento> esta;
+            using (AppDbContext context = new AppDbContext())
+            {
+                esta = context.Set<Estacionamiento>()
+                    .Where(x => x.VehiculoEstacionado.Patente == patente)
+                    .Include(x => x.VehiculoEstacionado)
+                    .Include(x => x.Plaza)
+                    .ToList();
+            }
 
-        //    estacionamientos = repo.Estacionamientos
-        //        .Where(x => x.VehiculoEstacionado.Patente == patente)
-        //        .ToList();
+            return esta;
+            //estacionamientos = repo.Estacionamientos
+            //    .Where(x => x.VehiculoEstacionado.Patente == patente)
+            //    .ToList();
 
-        //    return estacionamientos;
-        //}
+        }
 
         public bool YaEstaEstacionado(string patente)
         {

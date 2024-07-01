@@ -22,7 +22,7 @@ namespace EstacionamientoMedido.Vistas
         public void AsignarPlaza()
         {
             PlazaEstacionamiento PlazaCargar = new PlazaEstacionamiento();
-            Console.Write("Nombre plaza: ");
+            Console.Write("\nNombre plaza: ");
             PlazaCargar.Nombre = Console.ReadLine();
 
             plazaController.GuardarPlaza(PlazaCargar);
